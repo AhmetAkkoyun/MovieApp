@@ -2,11 +2,15 @@ package com.ahmetakkoyun.controller;
 
 import com.ahmetakkoyun.dto.request.LoginRequestDto;
 import com.ahmetakkoyun.dto.request.RegisterRequestDto;
+import com.ahmetakkoyun.dto.response.UserResponseDto;
 import com.ahmetakkoyun.repository.entity.User;
 import com.ahmetakkoyun.sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 import static com.ahmetakkoyun.constant.RestApiUrl.*;
 
 @RestController
@@ -61,8 +65,48 @@ public class UserController {
     }
 
     @PostMapping(LOGIN)
-    public ResponseEntity<User> login(@RequestBody LoginRequestDto dto){
+    public ResponseEntity<UserResponseDto> login(@RequestBody LoginRequestDto dto){
         return ResponseEntity.ok(userService.login(dto));
+    }
+
+    @GetMapping("/orderbyname")
+    public ResponseEntity<List<User>> findAllByOrderByName(){
+        return ResponseEntity.ok(userService.findAllByOrderByName());
+    }
+
+    @GetMapping ("/orderbynamedesc")
+    public ResponseEntity<List<User>> findAllByOrderByNameDesc(){
+        return ResponseEntity.ok(userService.findAllByOrderByNameDesc());
+    }
+
+    @GetMapping ("/containingbyname")
+    public ResponseEntity<List<UserResponseDto>> findAllByNameContainingIgnoreCase(String value){
+        return ResponseEntity.ok(userService.findAllByNameContainingIgnoreCase(value));
+    }
+
+    @GetMapping("/containingbyemail")
+    public ResponseEntity<List<User>> findAllByEmailContainingIgnoreCase(String value){
+        return ResponseEntity.ok(userService.findAllByEmailContainingIgnoreCase(value));
+    }
+
+    @GetMapping("/email_ending_with")
+    public ResponseEntity<List<User>> findAllByEmailEndingWith(String value){
+        return ResponseEntity.ok(userService.findAllByEmailEndingWith(value));
+    }
+
+    @GetMapping("/lt_password")
+    public ResponseEntity<List<User>> paswordLongerThan(int value){
+        return ResponseEntity.ok(userService.paswordLongerThan(value));
+    }
+
+    @GetMapping("/lt_password2")
+    public ResponseEntity<List<User>> paswordLongerThan2(int value){
+        return ResponseEntity.ok(userService.paswordLongerThan2(value));
+    }
+
+    @GetMapping("/lt_password3")
+    public ResponseEntity<List<User>> paswordLongerThan3(int value){
+        return ResponseEntity.ok(userService.paswordLongerThan3(value));
     }
 
 }
