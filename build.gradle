@@ -33,6 +33,7 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'    // postman yerine
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'      // builder()...build() işlemini kolaylaştırmak için
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'    // builder()...build() işlemini kolaylaştırmak için
+    runtimeOnly 'com.h2database:h2'
 
 }
 
