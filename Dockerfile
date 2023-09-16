@@ -29,3 +29,17 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
         # ahmetakkoyun : docker hesabı kullanıcı adı
         # movieapp : image dosyasına verilmiş olan isim
         # v001 : image versiyonu
+
+# dockerdan resmi postgres görüntüsünü çalıştırmak için:
+# docker run --name docker-postgres -e POSTGRES_PASSWORD=root -d -p 5532:5432 postgres
+    # docker run : konsol komutu
+    # --name docker-postgres : çalışacak container için belirlediğimiz isim
+    # -e POSTGRES_PASSWORD=root : veritabanı şifresi
+    # -d : arkaplanda çalıştır
+    # -p 5532:5432 : port
+        # 5532 : dış port (5432 yaparsak bu konteyner çalışırken farklı bir yerden pg admine erişemeyiz)
+        # 5432 : iç port (5432 pgadminin portu)
+    # postgres : image ismi
+
+# bunları docker üzerinden çalıştırabilmek için pgadminde de 5532 portunda çalışan bir server oluşturmak gerekiyor
+

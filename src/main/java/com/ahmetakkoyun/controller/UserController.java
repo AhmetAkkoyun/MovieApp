@@ -76,7 +76,7 @@ public class UserController {
 
     @GetMapping ("/orderbynamedesc")
     public ResponseEntity<List<User>> findAllByOrderByNameDesc(){
-        return ResponseEntity.ok(userService.findAllByOrderByNameDesc());
+        return ResponseEntity.ok(userService.                                                          findAllByOrderByNameDesc());
     }
 
     @GetMapping ("/containingbyname")
