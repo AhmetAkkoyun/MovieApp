@@ -8,7 +8,7 @@ spring:
   datasource:
     username: postgres
     password: root
-#    url: jdbc:postgresql://localhost:5532/MovieDb   # dockerdaki postgresi çalıştırsın diye 5532
+#    url: jdbc:postgresql://localhost:5532/MovieDb         # dockerdaki postgresi çalıştırsın diye 5532
     url: jdbc:postgresql://localhost:5532/dockerDenemeDb   # bu veritabanını dockerdaki terminalden kuracağız.
                                                            # bunun için dockerda çalışan postgres konteynırında terminale gir
                                                            # su postgres  komutu ile postgres kullanıcı yetkisini al
